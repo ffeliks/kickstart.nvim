@@ -8,12 +8,10 @@ return {
   },
   config = function()
     require('neo-tree').setup {
-      options = {
-        filesystem = {
-          bind_to_cwd = false,
-          follow_current_file = { enabled = true },
-          use_libuv_file_watcher = true,
-        },
+      filesystem = {
+        bind_to_cwd = false,
+        follow_current_file = { enabled = true },
+        use_libuv_file_watcher = true,
       },
     }
 
