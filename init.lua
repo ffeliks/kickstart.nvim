@@ -105,6 +105,12 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Keybinds to manage tabs
+vim.keymap.set('n', '<leader>ta', '<cmd>tabnew<CR>', { desc = 'Add new tab' })
+vim.keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' })
+vim.keymap.set('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' })
+vim.keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -706,17 +712,26 @@ require('lazy').setup({
     end,
   },
   {
-    'navarasu/onedark.nvim',
+    'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
-    opts = {
-      style = 'cool',
-    },
+    opts = {},
     init = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'tokyonight-moon'
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-
+  -- {
+  --   'navarasu/onedark.nvim',
+  --   priority = 1000,
+  --   opts = {
+  --     style = 'cool',
+  --   },
+  --   init = function()
+  --     vim.cmd.colorscheme 'onedark'
+  --     vim.cmd.hi 'Comment gui=none'
+  --   end,
+  -- },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 

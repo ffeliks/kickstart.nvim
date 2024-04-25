@@ -21,11 +21,11 @@ return {
       require('neotest').run.run()
     end, { desc = 'Test current method' })
 
-    vim.keymap.set('n', '<leader>tp', function()
+    vim.keymap.set('n', '<leader>to', function()
       require('neotest').output_panel.toggle()
-    end, { desc = 'Toggle test panel' })
+    end, { desc = 'Toggle test output panel' })
 
-    vim.keymap.set('n', '<leader>tP', function()
+    vim.keymap.set('n', '<leader>tO', function()
       require('neotest').summary.toggle()
     end, { desc = 'Toggle test summary window' })
 
