@@ -485,6 +485,9 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
+        html = {},
+        cssls = {},
+        tailwindcss = {},
         intelephense = {},
         gopls = {
           settings = {
@@ -541,6 +544,7 @@ require('lazy').setup({
         'gofumpt',
         'gomodifytags',
         'impl',
+        'golangci-lint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -717,7 +721,7 @@ require('lazy').setup({
     priority = 1000,
     opts = {},
     init = function()
-      vim.cmd.colorscheme 'tokyonight-moon'
+      vim.cmd.colorscheme 'tokyonight-storm'
       vim.cmd.hi 'Comment gui=none'
     end,
   },
@@ -776,7 +780,30 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'go', 'gomod', 'gowork', 'gosum' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'vim',
+        'vimdoc',
+        'go',
+        'gomod',
+        'gowork',
+        'gosum',
+        'php',
+        'phpdoc',
+        'json',
+        'javascript',
+        'typescript',
+        'vue',
+        'yaml',
+        'css',
+        'dockerfile',
+        'gitignore',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -846,6 +873,10 @@ require('lazy').setup({
       task = '📌',
       lazy = '💤 ',
     },
+  },
+  checker = {
+    enabled = true,
+    notify = false,
   },
 })
 
